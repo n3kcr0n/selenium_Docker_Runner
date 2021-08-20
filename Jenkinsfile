@@ -8,7 +8,7 @@ pipeline{
         }
         stage("Run Test"){
             steps{
-                sh "docker-compose up search-module Flight-module"
+                sh "docker-compose up Search-module Flight-module"
             }
         }
         stage("Stop Grid"){
