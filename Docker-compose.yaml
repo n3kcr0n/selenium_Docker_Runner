@@ -2,8 +2,6 @@ version: "3"
 services:
   hub:
     image: selenium/hub:3.141.59
-    ports:
-      - "4444:4444"
   chrome:
     image: selenium/node-chrome:3.141.59
     shm_size: '512mb'
@@ -42,7 +40,7 @@ services:
       - HUB_HOST=hub 
       - MODULE=Search.xml 
     volumes:
-      - ./searhtest-result1:/usr/share/workTest/test-output
+      - ./Test_Output/searhtest-result1:/usr/share/workTest/test-output
   Search-module2:
     image: 00707071/selenium-docker
     depends_on:
@@ -53,7 +51,7 @@ services:
       - HUB_HOST=hub 
       - MODULE=Search.xml 
     volumes:
-      - ./searhtest-result2:/usr/share/workTest/test-output    
+      - ./Test_Output/searhtest-result2:/usr/share/workTest/test-output    
   Flight-module1:
     image: 00707071/selenium-docker
     depends_on:
@@ -64,7 +62,7 @@ services:
       - HUB_HOST=hub 
       - MODULE=Flight.xml 
     volumes:
-      - ./Flight-result1:/usr/share/workTest/test-output
+      - ./Test_Output/Flight-result1:/usr/share/workTest/test-output
   Flight-module2:
     image: 00707071/selenium-docker
     depends_on:
@@ -75,4 +73,4 @@ services:
       - HUB_HOST=hub 
       - MODULE=Flight.xml 
     volumes:
-      - ./Flight-result2:/usr/share/workTest/test-output
+      - ./Test_Output/Flight-result2:/usr/share/workTest/test-output

@@ -11,10 +11,11 @@ pipeline{
                 sh "docker-compose up Search-module1 Search-module2 Flight-module1 Flight-module2"
             }
         }
-        stage("Stop Grid"){
-            steps{
-                sh "docker-compose down"
-            }
-        }   
+    }
+    post{
+        always{
+            archivedArtifacts artifacts: 'Test_Output/**'
+            sh "docker-compose down"
+        }
     }
 }
