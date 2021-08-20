@@ -32,7 +32,7 @@ services:
       - hub
     environment:
       - HUB_HOST=hub    
-  Search-module:
+  Search-module1:
     image: 00707071/selenium-docker
     depends_on:
       - chrome 
@@ -43,7 +43,7 @@ services:
       - MODULE=Search.xml 
     volumes:
       - ./searhtest-result1:/usr/share/workTest/test-output
-  Search-module:
+  Search-module2:
     image: 00707071/selenium-docker
     depends_on:
       - chrome 
@@ -54,7 +54,7 @@ services:
       - MODULE=Search.xml 
     volumes:
       - ./searhtest-result2:/usr/share/workTest/test-output    
-  Flight-module:
+  Flight-module1:
     image: 00707071/selenium-docker
     depends_on:
       - chrome 
@@ -65,7 +65,7 @@ services:
       - MODULE=Flight.xml 
     volumes:
       - ./Flight-result1:/usr/share/workTest/test-output
-  Flight-module:
+  Flight-module2:
     image: 00707071/selenium-docker
     depends_on:
       - chrome 
