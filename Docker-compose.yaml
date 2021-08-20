@@ -38,7 +38,7 @@ services:
       - chrome 
       - firefox
     environment:
-      - BROWSER=firefox
+      - BROWSER=chrome
       - HUB_HOST=hub 
       - MODULE=Search.xml 
     volumes:
@@ -71,7 +71,7 @@ services:
       - chrome 
       - firefox
     environment:
-      - BROWSER=chrome
+      - BROWSER=firefox
       - HUB_HOST=hub 
       - MODULE=Flight.xml 
     volumes:
