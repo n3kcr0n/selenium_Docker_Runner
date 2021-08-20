@@ -1,0 +1,42 @@
+version: "3"
+services:
+  hub:
+    image: selenium/hub:3.141.59
+    ports:
+      - "4444:4444"
+  chrome:
+    image: selenium/node-chrome:3.141.59
+    shm_size: '512mb'
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  firefox:
+    image: selenium/node-firefox:3.141.59
+    shm_size: '512mb'
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  search-module:
+    image: 00707071/selenium-docker
+    depends_on:
+      - chrome 
+      - firefox
+    environment:
+      - BROWSER=firefox
+      - HUB_HOST=hub 
+      - MODULE=Search.xml 
+    volumes:
+      - ./searhtest-result:/usr/share/workTest/test-output
+  Flight-module:
+    image: 00707071/selenium-docker
+    depends_on:
+      - chrome 
+      - firefox
+    environment:
+      - BROWSER=chrome
+      - HUB_HOST=hub 
+      - MODULE=Flight.xml 
+    volumes:
+      - ./Flight-result:/usr/share/workTest/test-output
